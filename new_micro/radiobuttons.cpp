@@ -7,7 +7,8 @@ RadioButtons::RadioButtons(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->J_VCC,SIGNAL(clicked(bool)),this,SLOT(slotChangeState()));
-    connect(ui->J_GND,SIGNAL(toggled(bool)),this,SLOT(slotChangeState()));
+    connect(ui->J_GND,SIGNAL(clicked(bool)),this,SLOT(slotChangeState()));
+
 }
 
 RadioButtons::~RadioButtons()
@@ -17,15 +18,23 @@ RadioButtons::~RadioButtons()
 
 void RadioButtons::slotChangeState()
 {
-    emit signalChangeState();
+    emit signalChangeState(getVCC());
 }
 
 void RadioButtons::setVCC(int x)
 {
     if (x == 0)
+    {
         ui->J_GND->setChecked(true);
+        ui->J_GND->clicked(true);
+        slotChangeState();
+    }
     else if (x == 1)
+    {
         ui->J_VCC->setChecked(true);
+        ui->J_VCC->clicked(true);
+        slotChangeState();
+    }
 
 }
 
@@ -35,7 +44,5 @@ int RadioButtons::getVCC()
         state = 0;
     else if (ui->J_VCC->isChecked())
         state = 1;
-    else
-        state = 2;
     return state;
 }

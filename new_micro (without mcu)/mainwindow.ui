@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1800</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="Switches" name="SW1" native="true">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>60</y>
+      <width>100</width>
+      <height>180</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>70</y>
+      <width>81</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>debug area</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debug_1">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>100</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debug_2">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>120</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debug_3">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>140</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debug_4">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>160</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debug_5">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>180</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debug_7">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>220</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debug_6">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>200</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debug_8">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>240</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_3">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>340</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_4">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>360</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_5">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>380</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_6">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>400</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_7">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>420</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_2">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>320</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_1">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>300</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_8">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>440</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="J1_J9" name="j1_j9" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1310</x>
+      <y>70</y>
+      <width>70</width>
+      <height>625</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="debugJ_9">
+    <property name="geometry">
+     <rect>
+      <x>1450</x>
+      <y>460</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="Buttons" name="buttons" native="true">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>410</y>
+      <width>450</width>
+      <height>320</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="Diodes" name="diodes" native="true">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>60</y>
+      <width>350</width>
+      <height>320</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="MCU" name="mcu" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1080</x>
+      <y>0</y>
+      <width>150</width>
+      <height>800</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="Switches" name="SW2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>60</y>
+      <width>100</width>
+      <height>180</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="Switches" name="SW3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>260</y>
+      <width>100</width>
+      <height>180</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="Switches" name="SW4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>260</y>
+      <width>100</width>
+      <height>180</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1800</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Switches</class>
+   <extends>QWidget</extends>
+   <header>switches.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>J1_J9</class>
+   <extends>QWidget</extends>
+   <header>j1_j9.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Buttons</class>
+   <extends>QWidget</extends>
+   <header>buttons.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Diodes</class>
+   <extends>QWidget</extends>
+   <header>diodes.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MCU</class>
+   <extends>QWidget</extends>
+   <header>mcu.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

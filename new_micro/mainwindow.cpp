@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->SW1->SetAllLable("SW1","PORTA","PORTB","PORTC","PORTD","PORTE","PORTF","PORTG","PORTH");
 
+    ui->buttons->setJ1_J9(0);
 
     v_debug.push_back(ui->debug_1);
     v_debug.push_back(ui->debug_2);
@@ -38,6 +39,17 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->SW1, SIGNAL(signalCheckbox(int*)),this,SLOT(checkboxChange(int*)));
     connect(ui->j1_j9,SIGNAL(signalChangeState(int*)),this,SLOT(j1_j9Change(int*)));
 
+    connect(ui->j1_j9,SIGNAL(signalChangeState(int*)),ui->buttons, SLOT(slotJ1_J9Change(int*)));
+
+    connect(ui->buttons,SIGNAL(signalChangeState(int**)),ui->mcu,SLOT(slotButtonsChange(int **)));
+
+    connect(ui->SW1,SIGNAL(signalCheckbox(int*)),ui->mcu,SLOT(slotSW1Change(int*)));
+    connect(ui->SW2,SIGNAL(signalCheckbox(int*)),ui->mcu,SLOT(slotSW2Change(int*)));
+    connect(ui->SW3,SIGNAL(signalCheckbox(int*)),ui->mcu,SLOT(slotSW3Change(int*)));
+    connect(ui->SW4,SIGNAL(signalCheckbox(int*)),ui->mcu,SLOT(slotSW4Change(int*)));
+
+    connect(ui->mcu,SIGNAL(signalButtonsChange(int **)),ui->diodes,SLOT(slotButtonsChange(int **)));
+    ui->mcu->setP0(0b10000011);
 }
 
 MainWindow::~MainWindow()

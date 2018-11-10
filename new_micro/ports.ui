@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PORTS</class>
+ <widget class="QWidget" name="PORTS">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>60</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="PORT" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="PORT" name="widget_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>90</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="PORT" name="widget_3" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>180</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="PORT" name="widget_4" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>270</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="PORT" name="widget_5" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>360</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="PORT" name="widget_6" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>450</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="PORT" name="widget_7" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>540</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="PORT" name="widget_8" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>630</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="PORT" name="widget_9" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>720</y>
+     <width>60</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PORT</class>
+   <extends>QWidget</extends>
+   <header>port.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

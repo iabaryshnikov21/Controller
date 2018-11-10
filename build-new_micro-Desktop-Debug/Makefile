@@ -54,12 +54,22 @@ SOURCES       = ../new_micro/main.cpp \
 		../new_micro/customscene.cpp \
 		../new_micro/switches.cpp \
 		../new_micro/radiobuttons.cpp \
-		../new_micro/j1_j9.cpp moc_mainwindow.cpp \
+		../new_micro/j1_j9.cpp \
+		../new_micro/buttons.cpp \
+		../new_micro/diodes.cpp \
+		../new_micro/mcu.cpp \
+		../new_micro/port.cpp \
+		../new_micro/ports.cpp moc_mainwindow.cpp \
 		moc_new_class.cpp \
 		moc_customscene.cpp \
 		moc_switches.cpp \
 		moc_radiobuttons.cpp \
-		moc_j1_j9.cpp
+		moc_j1_j9.cpp \
+		moc_buttons.cpp \
+		moc_diodes.cpp \
+		moc_mcu.cpp \
+		moc_port.cpp \
+		moc_ports.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		new_class.o \
@@ -67,12 +77,22 @@ OBJECTS       = main.o \
 		switches.o \
 		radiobuttons.o \
 		j1_j9.o \
+		buttons.o \
+		diodes.o \
+		mcu.o \
+		port.o \
+		ports.o \
 		moc_mainwindow.o \
 		moc_new_class.o \
 		moc_customscene.o \
 		moc_switches.o \
 		moc_radiobuttons.o \
-		moc_j1_j9.o
+		moc_j1_j9.o \
+		moc_buttons.o \
+		moc_diodes.o \
+		moc_mcu.o \
+		moc_port.o \
+		moc_ports.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -134,13 +154,23 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../new_micro/customscene.h \
 		../new_micro/switches.h \
 		../new_micro/radiobuttons.h \
-		../new_micro/j1_j9.h ../new_micro/main.cpp \
+		../new_micro/j1_j9.h \
+		../new_micro/buttons.h \
+		../new_micro/diodes.h \
+		../new_micro/mcu.h \
+		../new_micro/port.h \
+		../new_micro/ports.h ../new_micro/main.cpp \
 		../new_micro/mainwindow.cpp \
 		../new_micro/new_class.cpp \
 		../new_micro/customscene.cpp \
 		../new_micro/switches.cpp \
 		../new_micro/radiobuttons.cpp \
-		../new_micro/j1_j9.cpp
+		../new_micro/j1_j9.cpp \
+		../new_micro/buttons.cpp \
+		../new_micro/diodes.cpp \
+		../new_micro/mcu.cpp \
+		../new_micro/port.cpp \
+		../new_micro/ports.cpp
 QMAKE_TARGET  = new_micro
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = new_micro
@@ -168,7 +198,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_switches.h ui_radiobuttons.h ui_j1_j9.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_switches.h ui_radiobuttons.h ui_j1_j9.h ui_buttons.h ui_diodes.h ui_mcu.h ui_port.h ui_ports.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../new_micro/new_micro.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -306,9 +336,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../new_micro/mainwindow.h ../new_micro/new_class.h ../new_micro/customscene.h ../new_micro/switches.h ../new_micro/radiobuttons.h ../new_micro/j1_j9.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../new_micro/main.cpp ../new_micro/mainwindow.cpp ../new_micro/new_class.cpp ../new_micro/customscene.cpp ../new_micro/switches.cpp ../new_micro/radiobuttons.cpp ../new_micro/j1_j9.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../new_micro/mainwindow.ui ../new_micro/switches.ui ../new_micro/radiobuttons.ui ../new_micro/j1_j9.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../new_micro/mainwindow.h ../new_micro/new_class.h ../new_micro/customscene.h ../new_micro/switches.h ../new_micro/radiobuttons.h ../new_micro/j1_j9.h ../new_micro/buttons.h ../new_micro/diodes.h ../new_micro/mcu.h ../new_micro/port.h ../new_micro/ports.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../new_micro/main.cpp ../new_micro/mainwindow.cpp ../new_micro/new_class.cpp ../new_micro/customscene.cpp ../new_micro/switches.cpp ../new_micro/radiobuttons.cpp ../new_micro/j1_j9.cpp ../new_micro/buttons.cpp ../new_micro/diodes.cpp ../new_micro/mcu.cpp ../new_micro/port.cpp ../new_micro/ports.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../new_micro/mainwindow.ui ../new_micro/switches.ui ../new_micro/radiobuttons.ui ../new_micro/j1_j9.ui ../new_micro/buttons.ui ../new_micro/diodes.ui ../new_micro/mcu.ui ../new_micro/port.ui ../new_micro/ports.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -331,12 +361,13 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_new_class.cpp moc_customscene.cpp moc_switches.cpp moc_radiobuttons.cpp moc_j1_j9.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_new_class.cpp moc_customscene.cpp moc_switches.cpp moc_radiobuttons.cpp moc_j1_j9.cpp moc_buttons.cpp moc_diodes.cpp moc_mcu.cpp moc_port.cpp moc_ports.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_new_class.cpp moc_customscene.cpp moc_switches.cpp moc_radiobuttons.cpp moc_j1_j9.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_new_class.cpp moc_customscene.cpp moc_switches.cpp moc_radiobuttons.cpp moc_j1_j9.cpp moc_buttons.cpp moc_diodes.cpp moc_mcu.cpp moc_port.cpp moc_ports.cpp
 moc_mainwindow.cpp: ../new_micro/customscene.h \
 		../new_micro/new_class.h \
 		../new_micro/switches.h \
+		../new_micro/buttons.h \
 		../new_micro/mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ilya/git/Controller/new_micro -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../new_micro/mainwindow.h -o moc_mainwindow.cpp
 
@@ -352,16 +383,38 @@ moc_switches.cpp: ../new_micro/switches.h
 moc_radiobuttons.cpp: ../new_micro/radiobuttons.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ilya/git/Controller/new_micro -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../new_micro/radiobuttons.h -o moc_radiobuttons.cpp
 
-moc_j1_j9.cpp: ../new_micro/j1_j9.h
+moc_j1_j9.cpp: ../new_micro/radiobuttons.h \
+		../new_micro/j1_j9.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ilya/git/Controller/new_micro -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../new_micro/j1_j9.h -o moc_j1_j9.cpp
+
+moc_buttons.cpp: ../new_micro/buttons.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ilya/git/Controller/new_micro -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../new_micro/buttons.h -o moc_buttons.cpp
+
+moc_diodes.cpp: ../new_micro/diodes.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ilya/git/Controller/new_micro -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../new_micro/diodes.h -o moc_diodes.cpp
+
+moc_mcu.cpp: ../new_micro/mcu.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ilya/git/Controller/new_micro -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../new_micro/mcu.h -o moc_mcu.cpp
+
+moc_port.cpp: ../new_micro/port.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ilya/git/Controller/new_micro -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../new_micro/port.h -o moc_port.cpp
+
+moc_ports.cpp: ../new_micro/ports.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/ilya/git/Controller/new_micro -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../new_micro/ports.h -o moc_ports.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_switches.h ui_radiobuttons.h ui_j1_j9.h
+compiler_uic_make_all: ui_mainwindow.h ui_switches.h ui_radiobuttons.h ui_j1_j9.h ui_buttons.h ui_diodes.h ui_mcu.h ui_port.h ui_ports.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_switches.h ui_radiobuttons.h ui_j1_j9.h
+	-$(DEL_FILE) ui_mainwindow.h ui_switches.h ui_radiobuttons.h ui_j1_j9.h ui_buttons.h ui_diodes.h ui_mcu.h ui_port.h ui_ports.h
 ui_mainwindow.h: ../new_micro/mainwindow.ui \
-		../new_micro/switches.h
+		../new_micro/switches.h \
+		../new_micro/j1_j9.h \
+		../new_micro/buttons.h \
+		../new_micro/diodes.h \
+		../new_micro/mcu.h \
+		../new_micro/ports.h \
+		../new_micro/radiobuttons.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../new_micro/mainwindow.ui -o ui_mainwindow.h
 
 ui_switches.h: ../new_micro/switches.ui
@@ -370,8 +423,26 @@ ui_switches.h: ../new_micro/switches.ui
 ui_radiobuttons.h: ../new_micro/radiobuttons.ui
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../new_micro/radiobuttons.ui -o ui_radiobuttons.h
 
-ui_j1_j9.h: ../new_micro/j1_j9.ui
+ui_j1_j9.h: ../new_micro/j1_j9.ui \
+		../new_micro/radiobuttons.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../new_micro/j1_j9.ui -o ui_j1_j9.h
+
+ui_buttons.h: ../new_micro/buttons.ui \
+		../new_micro/radiobuttons.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../new_micro/buttons.ui -o ui_buttons.h
+
+ui_diodes.h: ../new_micro/diodes.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../new_micro/diodes.ui -o ui_diodes.h
+
+ui_mcu.h: ../new_micro/mcu.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../new_micro/mcu.ui -o ui_mcu.h
+
+ui_port.h: ../new_micro/port.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../new_micro/port.ui -o ui_port.h
+
+ui_ports.h: ../new_micro/ports.ui \
+		../new_micro/port.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../new_micro/ports.ui -o ui_ports.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -386,14 +457,20 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 main.o: ../new_micro/main.cpp ../new_micro/mainwindow.h \
 		../new_micro/customscene.h \
 		../new_micro/new_class.h \
-		../new_micro/switches.h
+		../new_micro/switches.h \
+		../new_micro/buttons.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../new_micro/main.cpp
 
 mainwindow.o: ../new_micro/mainwindow.cpp ../new_micro/mainwindow.h \
 		../new_micro/customscene.h \
 		../new_micro/new_class.h \
 		../new_micro/switches.h \
-		ui_mainwindow.h
+		../new_micro/buttons.h \
+		ui_mainwindow.h \
+		../new_micro/diodes.h \
+		../new_micro/j1_j9.h \
+		../new_micro/radiobuttons.h \
+		../new_micro/mcu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../new_micro/mainwindow.cpp
 
 new_class.o: ../new_micro/new_class.cpp ../new_micro/new_class.h
@@ -411,8 +488,30 @@ radiobuttons.o: ../new_micro/radiobuttons.cpp ../new_micro/radiobuttons.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o radiobuttons.o ../new_micro/radiobuttons.cpp
 
 j1_j9.o: ../new_micro/j1_j9.cpp ../new_micro/j1_j9.h \
+		../new_micro/radiobuttons.h \
 		ui_j1_j9.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o j1_j9.o ../new_micro/j1_j9.cpp
+
+buttons.o: ../new_micro/buttons.cpp ../new_micro/buttons.h \
+		ui_buttons.h \
+		../new_micro/radiobuttons.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o buttons.o ../new_micro/buttons.cpp
+
+diodes.o: ../new_micro/diodes.cpp ../new_micro/diodes.h \
+		ui_diodes.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o diodes.o ../new_micro/diodes.cpp
+
+mcu.o: ../new_micro/mcu.cpp ../new_micro/mcu.h \
+		ui_mcu.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mcu.o ../new_micro/mcu.cpp
+
+port.o: ../new_micro/port.cpp ../new_micro/port.h \
+		ui_port.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o port.o ../new_micro/port.cpp
+
+ports.o: ../new_micro/ports.cpp ../new_micro/ports.h \
+		ui_ports.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ports.o ../new_micro/ports.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -431,6 +530,21 @@ moc_radiobuttons.o: moc_radiobuttons.cpp
 
 moc_j1_j9.o: moc_j1_j9.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_j1_j9.o moc_j1_j9.cpp
+
+moc_buttons.o: moc_buttons.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_buttons.o moc_buttons.cpp
+
+moc_diodes.o: moc_diodes.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_diodes.o moc_diodes.cpp
+
+moc_mcu.o: moc_mcu.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mcu.o moc_mcu.cpp
+
+moc_port.o: moc_port.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_port.o moc_port.cpp
+
+moc_ports.o: moc_ports.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ports.o moc_ports.cpp
 
 ####### Install
 

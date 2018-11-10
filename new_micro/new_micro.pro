@@ -19,7 +19,11 @@ SOURCES += main.cpp\
     switches.cpp \
     radiobuttons.cpp \
     j1_j9.cpp \
-    buttons.cpp
+    buttons.cpp \
+    diodes.cpp \
+    mcu.cpp \
+    port.cpp \
+    ports.cpp
 
 HEADERS  += mainwindow.h \
     new_class.h \
@@ -27,10 +31,18 @@ HEADERS  += mainwindow.h \
     switches.h \
     radiobuttons.h \
     j1_j9.h \
-    buttons.h
+    buttons.h \
+    diodes.h \
+    mcu.h \
+    port.h \
+    ports.h
 
 FORMS    += mainwindow.ui \
     switches.ui \
     radiobuttons.ui \
     j1_j9.ui \
-    buttons.ui
+    buttons.ui \
+    diodes.ui \
+    mcu.ui \
+    port.ui \
+    ports.ui
